@@ -1,0 +1,62 @@
+
+### Problem Statement:
+
+You are optimizing a program that takes 100 seconds 
+to run on a single processor. 
+You've identified that 60% of the program can be parallelized, 
+meaning it can be sped up by adding more processors, 
+while the remaining 40% of the program is 
+inherently sequential and cannot be parallelized.
+
+You want to determine:
+1. The speedup of the program if you use 4 processors.
+2. The theoretical maximum speedup if an infinite number 
+of processors were available.
+
+### Applying Amdahl's Law:
+
+Amdahl's Law is expressed by the following formula:
+
+\text{Speedup} = \frac{1}{(1 - P) + \frac{P}{N}}
+
+Where:
+-  P  is the fraction of the program that can be parallelized.
+-  N  is the number of processors.
+-  1 - P is the fraction of the program that is sequential.
+
+### Step 1: Determine the speedup with 4 processors.
+
+Given:
+-  P = 0.60  (60% of the program can be parallelized)
+-  N = 4  (4 processors)
+
+Substituting these values into the formula:
+
+\text{Speedup} = \frac{1}{(1 - 0.60) + \frac{0.60}{4}} = \frac{1}{0.40 + 0.15} = \frac{1}{0.55} \approx 1.818
+
+
+So, the speedup with 4 processors is approximately 1.818.
+
+This means the program would now take  \frac{100}{1.818} \approx 55  seconds to run with 4 processors.
+
+### Step 2: Determine the theoretical maximum speedup with an infinite number of processors.
+
+When N  approaches infinity, the parallel portion of the program P/N approaches zero. The formula simplifies to:
+
+\text{Maximum Speedup} = \frac{1}{(1 - P)} = \frac{1}{(1 - 0.60)} = \frac{1}{0.40} = 2.5
+
+
+So, the theoretical maximum speedup with an infinite number of processors is **2.5**.
+
+This means that even with unlimited processors, the best you can achieve is reducing the program's runtime from 100 seconds to  \frac{100}{2.5} = 40  seconds.
+
+### Conclusion:
+
+- With 4 processors, the program's runtime can be reduced to approximately 55 seconds, representing a speedup of 1.818 times.
+- The theoretical maximum speedup, no matter how many processors you use, is 2.5 times, reducing the runtime to 40 seconds.
+
+This example illustrates how Amdahl's Law helps 
+in understanding the limits of parallelization, 
+showing that the sequential portion of the program 
+significantly constrains the overall speedup.
+
